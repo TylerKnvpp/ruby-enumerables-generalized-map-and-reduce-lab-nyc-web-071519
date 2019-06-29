@@ -8,17 +8,33 @@ def map(array)
   return new
 end
 
-def reduce(array, start = nil)
-  if start
-    c = start
+# def reduce(array, starting_value=nil)
+#   if starting_value
+#     current_total = starting_value
+#     i = 0
+#   else
+#     current_total = array[0]
+#     i = 1
+#   end
+#   while i < array.length
+#     current_total = yield(current_total, array[i])
+#     i += 1
+#   end
+#   accum
+# end
+
+
+def reduce(array, starting_value=nil)
+  if starting_value
+    current_total = starting_value
     i = 0
   else
-    c = array[0]
+    current_total = array[0]
     i = 1
   end
   while i < array.length
-    c = yield(c, array[i])
+    accum = yield(accum, array[i])
     i += 1
   end
-  return c
+  current_total
 end
