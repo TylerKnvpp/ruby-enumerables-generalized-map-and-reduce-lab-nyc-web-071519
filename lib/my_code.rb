@@ -33,7 +33,7 @@ def reduce(array, starting_value=nil)
     i = 1
   end
   while i < array.length
-    accum = yield(accum, array[i])
+    current_total = yield(current_total, array[i])
     i += 1
   end
   current_total
